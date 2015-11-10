@@ -1,40 +1,26 @@
 .row {
-  margin-bottom: 20px;
-  border-radius: 4px;
-  background-color: rgba(0,0,0,.15);
-  color: rgb(255, 255, 255);
+	margin-bottom: 20px;
+	border-radius: 4px;
+	background-color: rgba(0,0,0,.15);
+	color: rgb(255, 255, 255);
 }
 [class*="col-"] {
-  padding-top: 15px;
-  padding-bottom: 15px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+h1 {
+	text-align: center;
+}
+
+body {
+	background-image: url("imag/bg.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .req {
 	color: rgb(255, 0, 0);
-}
-
-.error {
-	color: rgb(255, 0, 0);
-}
-
-ul li{
-	background: rgba(230, 230, 230, 0.9);
-	border-radius: 5px;
-}
-
-.tab-content div{
-	background: rgba(250, 250, 250, 0.9);
-}
-
-hr {
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-
-body {
-  background-image: url("bg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 #buttons {
@@ -45,10 +31,58 @@ body {
 	margin-top: 20px;
 }
 
+.error {
+	color: rgb(255, 0, 0);
+}
+
 hr {
+	margin-top: 20px;
+	margin-bottom: 20px;
 	opacity: 0.5;
 }
 
-h1 {
-	text-align: center;
+#responseArea {
+	# visibility: hidden;
+}
+
+.nav-pills li a{
+	background: rgba(230, 230, 230, 0.9);
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+
+div.tab-content{
+	#background: rgba(250, 250, 250, 1);
+}
+
+div.tab-content table {
+	background: rgba(250, 250, 250, 1);
+	margin-bottom: 0px;
+	border-top-width: 0px;
+}
+
+
+.table-striped tbody tr:nth-of-type(odd) {
+	background-color: rgba(255, 0, 0, .2);
+}
+
+div.tab-content table th{
+	padding: 0px;
+	border-top-width: 0px;
+}
+div.tab-content table td{
+	border-top-width: 0px;
+}
+div.tab-content table th div{
+	background: rgba(255, 0, 0, .5);
+}
+
+div.tab-content div div{
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	background: rgba(250, 250, 250, 1);
 }

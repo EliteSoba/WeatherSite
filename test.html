@@ -98,7 +98,7 @@
 				<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Clear
 				</button>
 				<div id="forecast">
-					Powered by: <img src="forecast_logo.png" height=3.6%>
+					Powered by: <img src="imag/forecast_logo.png" height=3.6%>
 				</div>
 			</div>
 		</div>
@@ -116,7 +116,54 @@
 		<div class="tab-content">
 			<div role="tabpanel" class="tab-pane fade in active" id="current">
 				<div class="col-xs-12 col-md-6">
-					Right Now Pane
+					<div class="col-xs-12">
+						<table class="table table-striped">
+							<tbody>
+							<tr>
+								<th colspan=2>
+									<div class="col-xs-12 col-md-6">
+										Weather icon
+									</div>
+									<div class="col-xs-12 col-md-6">
+										Weather info
+									</div>
+								</th>
+							</tr>
+							<tr>
+								<td>Precipitation</td>
+								<td>aaaa</td>
+							</tr>
+							<tr>
+								<td>Chance of Rain</td>
+								<td>bbbb</td>
+							</tr>
+							<tr>
+								<td>Wind Speed</td>
+								<td>cccc</td>
+							</tr>
+							<tr>
+								<td>Dew Point</td>
+								<td>dddd</td>
+							</tr>
+							<tr>
+								<td>Humidity</td>
+								<td>eeee</td>
+							</tr>
+							<tr>
+								<td>Visibility</td>
+								<td>ffff</td>
+							</tr>
+							<tr>
+								<td>Sunrise</td>
+								<td>gggg</td>
+							</tr>
+							<tr>
+								<td>Sunset</td>
+								<td>hhhh</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
 				<div class="col-xs-12 col-md-6">
 					Cloud Map
@@ -200,10 +247,14 @@
 		if (xhr.readyState == 4) {
 			if (xhr.status == 200) {
 				var outMsg = xhr.responseText;
+				var data = jQuery.parseJSON(outMsg);
+				console.log(data);
+				console.log(data.latitude);
 				var test = document.createElement('div');
 				test.setAttribute("class", "row");
 				test.innerHTML = outMsg;
-				$("#responseArea").append(test);
+				//$("#responseArea").append(test);
+				$("#responseArea").css("visibility", "visible");
 			}
 			else {
 				$("#responseArea").text("Error reading data");
@@ -226,7 +277,8 @@
 		$("#cityerr").text("");
 		$("#stateerr").text("");
 		//DEBUG
-		$("#responseArea").text("");
+		//$("#responseArea").text("");
+		$("#responseArea").css("visibility", "hidden");
 	});
 	</script>
 </body>
