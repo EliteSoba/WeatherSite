@@ -104,8 +104,50 @@
 		</div>
 		</form>
 	<hr>
+	<div id="responseArea">
+		<!-- Nav tabs -->
+		<ul class="nav nav-pills" role="tablist">
+			<li role="presentation" class="active"><a href="#current" aria-controls="current" role="tab" data-toggle="tab">Right Now</a></li>
+			<li role="presentation"><a href="#next" aria-controls="next" role="tab" data-toggle="tab">Next 24 Hours</a></li>
+			<li role="presentation"><a href="#week" aria-controls="week" role="tab" data-toggle="tab">Next 7 Days</a></li>
+		</ul>
+		
+		<!-- Tab panes -->
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane fade in active" id="current">
+				<div class="col-xs-12 col-md-6">
+					Right Now Pane
+				</div>
+				<div class="col-xs-12 col-md-6">
+					Cloud Map
+				</div>
+			</div>
+			<div role="tabpanel" class="tab-pane fade" id="next">
+				<div class="col-xs-12">
+					Next 24 Hours Pane
+				</div>
+			</div>
+			<div role="tabpanel" class="tab-pane fade" id="week">
+				<div class="col-xs-12">
+					Next 7 Days Pane
+				</div>
+			</div>
+		</div>
+	</div>
 	</div>
 	<script>
+	$('#current a').click(function (e) {
+		e.preventDefault()
+		$(this).tab('show')
+	});
+	$('#next a').click(function (e) {
+		e.preventDefault()
+		$(this).tab('show')
+	});
+	$('#week a').click(function (e) {
+		e.preventDefault()
+		$(this).tab('show')
+	});
 	$("#street").focusout(function(){
 		var street = $(this).val().trim();
 		if (!street) {
@@ -133,11 +175,47 @@
 			$("#stateerr").text("");
 		}
 	});
+	var xhr = false;
+	function getData(data) {
+		if (window.XMLHttpRequest) {
+			xhr = new XMLHttpRequest();
+		}
+		else {
+			if (window.ActiveXObject) {
+				try {
+					xhr = new ActiveXObject("Microsoft.XMLHTTP");
+				} catch (e) { } 
+			}
+		}
+		if (xhr) {
+			xhr.onreadystatechange = parseJson;
+			xhr.open("GET", data, true);
+			xhr.send(null);
+		}
+		else {
+			$("#responseArea").text("An error occurred. Please try again.");
+		}
+	}
+	function parseJson() {
+		if (xhr.readyState == 4) {
+			if (xhr.status == 200) {
+				var outMsg = xhr.responseText;
+				var test = document.createElement('div');
+				test.setAttribute("class", "row");
+				test.innerHTML = outMsg;
+				$("#responseArea").append(test);
+			}
+			else {
+				$("#responseArea").text("Error reading data");
+			}
+		}
+	}
 	$("#search").click(function(){
 		var street = $("#street").val().trim();
 		var city =  $("#city").val().trim();
 		var state =  $("#state").val().trim();
 		
+		getData("https://api.forecast.io/forecast/5a86790b799489f59c2a56e57c06259d/47.1036507,-121.6174491?units=us&exclude=flags");
 		if (street && city && state) {
 			return true;
 		}
@@ -147,6 +225,8 @@
 		$("#streeterr").text("");
 		$("#cityerr").text("");
 		$("#stateerr").text("");
+		//DEBUG
+		$("#responseArea").text("");
 	});
 	</script>
 </body>
