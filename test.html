@@ -10,16 +10,21 @@
 	<h1>Forecast Search</h1>
 	<script src="http://code.jquery.com/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-1.11.3.js"></script>
 	<div class="container">
 		<form role="form">
 		<div class="row">
 			<div class="col-md-3">
 				<label for="street">Street Address<span class="req">*</span></label>
 				<input type="text" class="form-control" id="street" placeholder="Enter street address">
+				<div id="streeterr" class="error">
+				</div>
 			</div>
 			<div class="col-md-2">
 				<label for="city">City<span class="req">*</span></label>
 				<input type="text" class="form-control" id="city" placeholder="Enter the city name">
+				<div id="cityerr" class="error">
+				</div>
 			</div>
 			<div class="col-md-2">
 				<label for="state">State<span class="req">*</span></label>
@@ -77,6 +82,8 @@
 					<OPTION VALUE="WI">Wisconsin</OPTION>
 					<OPTION VALUE="WY">Wyoming</OPTION>
 				</SELECT>
+				<div id="stateerr" class="error">
+				</div>
 			</div>
 			<div class="col-md-3">
 				<label for="degree">Degree<span class="req">*</span></label><br />
@@ -84,10 +91,10 @@
 				<label class="radio-inline"><INPUT TYPE="radio" NAME="degree" VALUE="si">Celsius</label>
 			</div>
 			<div class="col-md-2" id="buttons">
-				<button type="button" class="btn btn-primary btn-sm">
+				<button type="button" id="search" class="btn btn-primary btn-sm">
 				<span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
 				</button>
-				<button type="button" class="btn btn-default btn-sm">
+				<button type="reset" id="clear" class="btn btn-default btn-sm">
 				<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Clear
 				</button>
 				<div id="forecast">
@@ -96,6 +103,51 @@
 			</div>
 		</div>
 		</form>
+	<hr>
 	</div>
+	<script>
+	$("#street").focusout(function(){
+		var street = $(this).val().trim();
+		if (!street) {
+			$("#streeterr").text("Please enter the street address");
+		}
+		else {
+			$("#streeterr").text("");
+		}
+	});
+	$("#city").focusout(function(){
+		var city = $(this).val().trim();
+		if (!city) {
+			$("#cityerr").text("Please enter the city");
+		}
+		else {
+			$("#cityerr").text("");
+		}
+	});
+	$("#state").focusout(function(){
+		var state = $(this).val().trim();
+		if (!state) {
+			$("#stateerr").text("Please select a state");
+		}
+		else {
+			$("#stateerr").text("");
+		}
+	});
+	$("#search").click(function(){
+		var street = $("#street").val().trim();
+		var city =  $("#city").val().trim();
+		var state =  $("#state").val().trim();
+		
+		if (street && city && state) {
+			return true;
+		}
+		return false;
+	});
+	$("#clear").click(function(){
+		$("#streeterr").text("");
+		$("#cityerr").text("");
+		$("#stateerr").text("");
+	});
+	</script>
 </body>
 </html>
