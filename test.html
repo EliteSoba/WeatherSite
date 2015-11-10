@@ -1,0 +1,91 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Test</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link href="grid.css" rel="stylesheet">
+</head>
+<body>
+	<h1>Forecast Search</h1>
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<div class="container">
+		<form role="form">
+		<div class="row">
+			<div class="col-md-3">
+				<label for="street">Street Address<span class="req">*</span></label>
+				<input type="text" class="form-control" id="street" placeholder="Enter street address">
+			</div>
+			<div class="col-md-2">
+				<label for="city">City<span class="req">*</span></label>
+				<input type="text" class="form-control" id="city" placeholder="Enter the city name">
+			</div>
+			<div class="col-md-2">
+				<label for="state">State<span class="req">*</span></label>
+				<SELECT class="form-control" id="state">
+					<OPTION SELECTED VALUE="">Select your state...</OPTION>
+					<OPTION VALUE="AK">Alaska</OPTION>
+					<OPTION VALUE="AL">Alabama</OPTION>
+					<OPTION VALUE="AR">Arkansas</OPTION>
+					<OPTION VALUE="AZ">Arizona</OPTION>
+					<OPTION VALUE="CA">California</OPTION>
+					<OPTION VALUE="CO">Colorado</OPTION>
+					<OPTION VALUE="CT">Connecticut</OPTION>
+					<OPTION VALUE="DE">Delaware</OPTION>
+					<OPTION VALUE="DC">District of Columbia</OPTION>
+					<OPTION VALUE="FL">Florida</OPTION>
+					<OPTION VALUE="GA">Georgia</OPTION>
+					<OPTION VALUE="HI">Hawaii</OPTION>
+					<OPTION VALUE="ID">Idaho</OPTION>
+					<OPTION VALUE="IL">Illinois</OPTION>
+					<OPTION VALUE="IN">Indiana</OPTION>
+					<OPTION VALUE="IA">Iowa</OPTION>
+					<OPTION VALUE="KS">Kansas</OPTION>
+					<OPTION VALUE="KY">Kentucky</OPTION>
+					<OPTION VALUE="LA">Louisiana</OPTION>
+					<OPTION VALUE="ME">Maine</OPTION>
+					<OPTION VALUE="MD">Maryland</OPTION>
+					<OPTION VALUE="MA">Massachusetts</OPTION>
+					<OPTION VALUE="MI">Michigan</OPTION>
+					<OPTION VALUE="MN">Minnesota</OPTION>
+					<OPTION VALUE="MS">Mississippi</OPTION>
+					<OPTION VALUE="MO">Missouri</OPTION>
+					<OPTION VALUE="MT">Montana</OPTION>
+					<OPTION VALUE="NE">Nebraska</OPTION>
+					<OPTION VALUE="NV">Nevada</OPTION>
+					<OPTION VALUE="NH">New Hampshire</OPTION>
+					<OPTION VALUE="NJ">New Jersey</OPTION>
+					<OPTION VALUE="NM">New Mexico</OPTION>
+					<OPTION VALUE="NY">New York</OPTION>
+					<OPTION VALUE="NC">North Carolina</OPTION>
+					<OPTION VALUE="ND">North Dakota</OPTION>
+					<OPTION VALUE="OH">Ohio</OPTION>
+					<OPTION VALUE="OK">Oklahoma</OPTION>
+					<OPTION VALUE="OR">Oregon</OPTION>
+					<OPTION VALUE="PA">Pennsylvania</OPTION>
+					<OPTION VALUE="RI">Rhode Island</OPTION>
+					<OPTION VALUE="SC">South Carolina</OPTION>
+					<OPTION VALUE="SD">South Dakota</OPTION>
+					<OPTION VALUE="TN">Tennessee</OPTION>
+					<OPTION VALUE="TX">Texas</OPTION>
+					<OPTION VALUE="UT">Utah</OPTION>
+					<OPTION VALUE="VT">Vermont</OPTION>
+					<OPTION VALUE="VA">Virginia</OPTION>
+					<OPTION VALUE="WA">Washington</OPTION>
+					<OPTION VALUE="WV">West Virginia</OPTION>
+					<OPTION VALUE="WI">Wisconsin</OPTION>
+					<OPTION VALUE="WY">Wyoming</OPTION>
+				</SELECT>
+			</div>
+			<div class="col-md-3">
+				<label for="degree">Degree<span class="req">*</span></label><br />
+				<label class="radio-inline"><INPUT TYPE="radio" NAME="degree" VALUE="us" CHECKED>Fahrenheit</label>
+				<label class="radio-inline"><INPUT TYPE="radio" NAME="degree" VALUE="si">Celsius</label>
+			</div>
+			<div class="col-md-2">Search/Clear</div>
+		</div>
+		</form>
+	</div>
+</body>
+</html>
