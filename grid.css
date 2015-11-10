@@ -24,6 +24,14 @@ body {
   background-size: cover;
 }
 
+#buttons {
+	text-align: right;
+}
+
+#forecast {
+	margin-top: 20px;
+}
+
 h1 {
 	text-align: center;
 }
