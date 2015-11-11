@@ -12,6 +12,24 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="http://openlayers.org/api/OpenLayers.js"></script>
 	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId      : '1715119768722217',
+				xfbml      : true,
+				version    : 'v2.5'
+			});
+		};
+
+		(function(d, s, id){
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement(s); js.id = id;
+			js.src = "http://connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+		
+	</script>
 	<div class="container">
 		<form role="form">
 		<div class="row">
@@ -125,7 +143,7 @@
 								<tr>
 									<th colspan=2>
 										<div class="col-xs-12 col-md-6" id="todayicon">
-											<img src="imag/clear.png" height=50%>
+											<img src="imag/clear.png" height=150px>
 										</div>
 										<div class="col-xs-12 col-md-6">
 											<div id="todayweather">
@@ -140,7 +158,7 @@
 												<span id="high">H: <span id="todayhigh">79</span>&deg;</span>
 											</div>
 											<div class="col-xs-2">
-												<img src="imag/fb_icon.png" height=5%>
+												<img src="imag/fb_icon.png" id="fb" height=31px>
 											</div>
 										</div>
 									</th>
@@ -506,11 +524,35 @@
 		return (hours + ":" + minutes + " " + am);
 	}
 	
+	function generateFacebook(picture, condition, temperature) {
+		var pic = "cs-server.usc.edu:45678/hw/hw8/images/" + picture;
+		var cap = condition + ", " + temperature + ((degree == "us") ? "°F" : "°C")
+		$("#fb").click(function() {
+			FB.ui({
+			  method: 'feed',
+			  name: "Current Weather in " + city + "," + state,
+			  picture: pic,
+			  caption: cap,
+			  description: "WEATHER INFORMATION FROM FORECAST.IO"
+			}, function(response){
+			  // Debug response (optional)
+			  if (!response || response.error) {
+				alert("Not Posted");
+			  }
+			  else {
+				alert("Posted Successfully");
+			  }
+			  console.log(response);
+			});
+		});
+	}
+	
 	function generateRightNowSummary(data) {
+		generateFacebook(images[data["currently"]["icon"]], data["currently"]["summary"], parseInt(data["currently"]["temperature"]));
 		$("#todayicon").text("");
 		var img = create("img");
 		img.setAttribute("src", "imag/" + images[data["currently"]["icon"]]);
-		img.setAttribute("height", "50%");
+		img.setAttribute("height", "150px");
 		$("#todayicon").append(img);
 		
 		$("#todayweather").text(data["currently"]["summary"] + " in " + city + ", " + state);
@@ -625,7 +667,7 @@
 			var td2 = create("td");
 			var img = create("img");
 			img.setAttribute("src", "imag/" + images[hourly["icon"]]);
-			img.setAttribute("height", "15%");
+			img.setAttribute("height", "45px");
 			td2.appendChild(img);
 			tr.appendChild(td2);
 			
@@ -766,7 +808,7 @@
 			icon.setAttribute("class", "col-xs-12");
 			var img = create("img");
 			img.setAttribute("src", "imag/" + images[daily["icon"]]);
-			img.setAttribute("height", "25%");
+			img.setAttribute("height", "170px");
 			icon.appendChild(img);
 			
 			var summary = create("div");
@@ -902,7 +944,7 @@
 			icon.setAttribute("class", "col-xs-12");
 			var img = create("img");
 			img.setAttribute("src", "imag/" + images[daily["icon"]]);
-			img.setAttribute("height", "7%");
+			img.setAttribute("height", "48px");
 			icon.appendChild(img);
 			
 			var min = create("div");
@@ -985,9 +1027,6 @@
 			$("#streeterr").text("");
 			$("#cityerr").text("");
 			$("#stateerr").text("");
-			//DEBUG
-			//$("#responseArea").text("");
-			$("#responseArea").css("visibility", "hidden");
 		});
 		$("#search").click(function(){
 			street = $("#street").val().trim();
