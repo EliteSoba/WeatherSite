@@ -57,7 +57,7 @@ div.tab-content{
 	#background: rgba(250, 250, 250, 1);
 }
 
-div.tab-content table {
+#today {
 	background: rgba(250, 250, 250, 1);
 	margin-bottom: 0px;
 	border-top-width: 0px;
@@ -68,15 +68,15 @@ div.tab-content table {
 	background-color: rgba(255, 0, 0, .2);
 }
 
-div.tab-content table th{
+#today th{
 	border-top-width: 0px;
 	padding: 5px;
 	background: rgba(242, 126, 127, 1);
 }
-div.tab-content table td{
+#today td{
 	border-top-width: 0px;
 }
-div.tab-content table th div{
+#today th div{
 	text-align: center;
 	background: rgba(242, 126, 127, 1);
 	color: rgb(255, 255, 255);
@@ -102,6 +102,47 @@ div.tab-content div div{
 	padding-left: 0px;
 	padding-right: 0px;
 	background: rgba(250, 250, 250, 1);
+}
+
+#day {
+	text-align: center;
+}
+
+#day td {
+	#border: 0px;
+}
+
+#day td.more {
+	border: 1px;
+	color: rgb(255, 0, 0);
+}
+
+#day div.well {
+	background-image: linear-gradient(rgb(232, 232, 232) 0px, rgb(245, 245, 245) 100%);
+	padding: 10px;
+	padding-bottom: 30px;
+}
+#day table.more{
+	text-align: center;
+	width: 100%;
+	padding: 5px;
+}
+#day table.more th {
+	color: rgb(0, 0, 0);
+	background: #FFFFFF;
+	border: 1px;
+	padding: 5px;
+}
+#day table.more td{
+	padding: 5px;
+}
+
+
+#day th{
+	text-align: center;
+	color: rgb(255, 255, 255);
+	background: #337ab7;
+	border: 0px;
 }
 
 #mapContainer{

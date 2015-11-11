@@ -118,7 +118,7 @@
 			<div role="tabpanel" class="tab-pane fade in active" id="current">
 				<div class="col-xs-12 col-md-6">
 					<div class="col-xs-12">
-						<table class="table table-striped">
+						<table class="table table-striped" id="today">
 							<tbody>
 							<tr>
 								<th colspan=2>
@@ -186,7 +186,63 @@
 			</div>
 			<div role="tabpanel" class="tab-pane fade" id="next">
 				<div class="col-xs-12">
-					Next 24 Hours Pane
+					<table class="table" id="day">
+						<tbody>
+							<tr>
+								<th>Time</th>
+								<th>Summary</th>
+								<th>Cloud Cover</th>
+								<th>Temp</th>
+								<th>View Details</th>
+							</tr>
+							<tr>
+									<td>10:00 PM</td>
+									<td><img src="imag/cloud_day.png" height=15%></td>
+									<td>0%</td>
+									<td>70.28</td>
+									<td>
+										<a class="btn btn-primary" role="button" data-toggle="collapse" href="#day0" aria-expanded="false" aria-controles="day0">
+										<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 
+										</a>
+									</td>
+							</tr>
+							<tr>
+								<td colspan=5 class="more">
+								<div class="collapse" id="day0">
+									<div class="well">
+									<table class="more">
+										<tbody>
+											<tr>
+												<th>Wind</th>
+												<th>Humidity</th>
+												<th>Visibility</th>
+												<th>Pressure</th>
+											</tr>
+											<tr>
+												<td>4mph</td>
+												<td>83%</td>
+												<td>8.37 mi</td>
+												<td>1012.6 mb</td>
+											</tr>
+										</tbody>
+									</table>
+									</div>
+								</div>
+								</td>
+							</tr>
+							<tr>
+									<td>11:00 PM</td>
+									<td><img src="imag/cloud_day.png" height=15%></td>
+									<td>0%</td>
+									<td>70.28</td>
+									<td>
+										<a class="btn btn-primary" role="button" data-toggle="collapse" href="#day1" aria-expanded="false" aria-controles="day1">
+										<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 
+										</a>
+									</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
 			<div role="tabpanel" class="tab-pane fade" id="week">
