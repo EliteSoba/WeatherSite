@@ -106,9 +106,18 @@ div.tab-content div div{
 
 #day {
 	text-align: center;
+	margin-bottom: 0px;
+}
+
+#day th{
+	text-align: center;
+	color: rgb(255, 255, 255);
+	background: #337ab7;
+	border: 0px;
 }
 
 #day td {
+	text-align: center;
 	#border: 0px;
 }
 
@@ -142,13 +151,6 @@ div.tab-content div div{
 }
 #day table.more td{
 	padding: 5px;
-}
-
-#day th{
-	text-align: center;
-	color: rgb(255, 255, 255);
-	background: #337ab7;
-	border: 0px;
 }
 
 #week div{

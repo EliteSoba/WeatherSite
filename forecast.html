@@ -104,314 +104,314 @@
 			</div>
 		</div>
 		</form>
-	<hr>
-	<div id="responseArea">
-		<!-- Nav tabs -->
-		<ul class="nav nav-pills" role="tablist">
-			<li role="presentation" class="active"><a href="#current" aria-controls="current" role="tab" data-toggle="tab">Right Now</a></li>
-			<li role="presentation"><a href="#next" aria-controls="next" role="tab" data-toggle="tab">Next 24 Hours</a></li>
-			<li role="presentation"><a href="#week" aria-controls="week" role="tab" data-toggle="tab">Next 7 Days</a></li>
-		</ul>
-		
-		<!-- Tab panes -->
-		<div class="tab-content">
-			<div role="tabpanel" class="tab-pane fade in active" id="current">
-				<div class="col-xs-12 col-md-6">
+		<hr>
+		<div id="responseArea">
+			<!-- Nav tabs -->
+			<ul class="nav nav-pills" role="tablist">
+				<li role="presentation" class="active"><a href="#current" aria-controls="current" role="tab" data-toggle="tab">Right Now</a></li>
+				<li role="presentation"><a href="#next" aria-controls="next" role="tab" data-toggle="tab">Next 24 Hours</a></li>
+				<li role="presentation"><a href="#week" aria-controls="week" role="tab" data-toggle="tab">Next 7 Days</a></li>
+			</ul>
+			
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane fade in active" id="current">
+					<div class="col-xs-12 col-md-6">
+						<div class="col-xs-12">
+							<table class="table table-striped" id="today">
+								<tbody>
+								<tr>
+									<th colspan=2>
+										<div class="col-xs-12 col-md-6" id="todayicon">
+											<img src="imag/clear.png" height=50%>
+										</div>
+										<div class="col-xs-12 col-md-6">
+											<div id="todayweather">
+												Mostly Cloudy in Los Angeles, CA
+											</div>
+											<div class="col-xs-8 col-xs-offset-2" id="temp">
+												<span class="templarge" id="todaytemp">71</span>&deg; <span class="unit">F</span>
+											</div>
+											<div class="col-xs-8 col-xs-offset-2" id="highlow">
+												<span id="low">L: <span id="todaylow">70</span>&deg;</span>
+												|
+												<span id="high">H: <span id="todayhigh">79</span>&deg;</span>
+											</div>
+											<div class="col-xs-2">
+												<img src="imag/fb_icon.png" height=5%>
+											</div>
+										</div>
+									</th>
+								</tr>
+								<tr>
+									<td>Precipitation</td>
+									<td id="todayprecip">aaaa</td>
+								</tr>
+								<tr>
+									<td>Chance of Rain</td>
+									<td id="todayrain">bbbb</td>
+								</tr>
+								<tr>
+									<td>Wind Speed</td>
+									<td id="todaywind">cccc</td>
+								</tr>
+								<tr>
+									<td>Dew Point</td>
+									<td><span id="todaydew">dddd</span>&deg; <span class="unit">F</span></td>
+								</tr>
+								<tr>
+									<td>Humidity</td>
+									<td id="todayhumid">eeee</td>
+								</tr>
+								<tr>
+									<td>Visibility</td>
+									<td id="todayvis">ffff</td>
+								</tr>
+								<tr>
+									<td>Sunrise</td>
+									<td id="todayrise">gggg</td>
+								</tr>
+								<tr>
+									<td>Sunset</td>
+									<td id="todayset">hhhh</td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-6" id="mapContainer">
+						<div id="basicMap">
+						</div>
+					</div>
+				</div>
+				<div role="tabpanel" class="tab-pane fade" id="next">
 					<div class="col-xs-12">
-						<table class="table table-striped" id="today">
-							<tbody>
-							<tr>
-								<th colspan=2>
-									<div class="col-xs-12 col-md-6" id="todayicon">
-										<img src="imag/clear.png" height=50%>
+						<table class="table" id="day">
+							<tbody id="daybody">
+								<tr>
+									<th>Time</th>
+									<th>Summary</th>
+									<th>Cloud Cover</th>
+									<th>Temp (&deg; <span class="units">F</span>)</th>
+									<th>View Details</th>
+								</tr>
+								<tr>
+										<td>10:00 PM</td>
+										<td><img src="imag/cloud_day.png" height=15%></td>
+										<td>0%</td>
+										<td>70.28</td>
+										<td>
+											<a class="btn btn-primary" role="button" data-toggle="collapse" href="#day0" aria-expanded="false" aria-controles="day0">
+											<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 
+											</a>
+										</td>
+								</tr>
+								<tr>
+									<td colspan=5 class="more">
+									<div class="collapse" id="day0">
+										<div class="well">
+										<table class="more">
+											<tbody>
+												<tr>
+													<th>Wind</th>
+													<th>Humidity</th>
+													<th>Visibility</th>
+													<th>Pressure</th>
+												</tr>
+												<tr>
+													<td>4mph</td>
+													<td>83%</td>
+													<td>8.37 mi</td>
+													<td>1012.6 mb</td>
+												</tr>
+											</tbody>
+										</table>
+										</div>
 									</div>
-									<div class="col-xs-12 col-md-6">
-										<div id="todayweather">
-											Mostly Cloudy in Los Angeles, CA
-										</div>
-										<div class="col-xs-8 col-xs-offset-2" id="temp">
-											<span class="templarge" id="todaytemp">71</span>&deg; <span class="unit">F</span>
-										</div>
-										<div class="col-xs-8 col-xs-offset-2" id="highlow">
-											<span id="low">L: <span id="todaylow">70</span>&deg;</span>
-											|
-											<span id="high">H: <span id="todayhigh">79</span>&deg;</span>
-										</div>
-										<div class="col-xs-2">
-											<img src="imag/fb_icon.png" height=5%>
-										</div>
-									</div>
-								</th>
-							</tr>
-							<tr>
-								<td>Precipitation</td>
-								<td id="todayprecip"><span>aaaa</td>
-							</tr>
-							<tr>
-								<td>Chance of Rain</td>
-								<td id="todayrain">bbbb</td>
-							</tr>
-							<tr>
-								<td>Wind Speed</td>
-								<td id="todaywind">cccc</td>
-							</tr>
-							<tr>
-								<td>Dew Point</td>
-								<td><span id="todaydew">dddd</span>&deg; <span class="unit">F</span></td>
-							</tr>
-							<tr>
-								<td>Humidity</td>
-								<td id="todayhumid">eeee</td>
-							</tr>
-							<tr>
-								<td>Visibility</td>
-								<td id="todayvis">ffff</td>
-							</tr>
-							<tr>
-								<td>Sunrise</td>
-								<td id="todayrise">gggg</td>
-							</tr>
-							<tr>
-								<td>Sunset</td>
-								<td id="todayset">hhhh</td>
-							</tr>
+									</td>
+								</tr>
+								<tr>
+										<td>11:00 PM</td>
+										<td><img src="imag/cloud_day.png" height=15%></td>
+										<td>0%</td>
+										<td>70.28</td>
+										<td>
+											<a class="btn btn-primary" role="button" data-toggle="collapse" href="#day1" aria-expanded="false" aria-controles="day1">
+											<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 
+											</a>
+										</td>
+								</tr>
 							</tbody>
 						</table>
 					</div>
 				</div>
-				<div class="col-xs-12 col-md-6" id="mapContainer">
-					<div id="basicMap">
-					</div>
-				</div>
-			</div>
-			<div role="tabpanel" class="tab-pane fade" id="next">
-				<div class="col-xs-12">
-					<table class="table" id="day">
-						<tbody>
-							<tr>
-								<th>Time</th>
-								<th>Summary</th>
-								<th>Cloud Cover</th>
-								<th>Temp</th>
-								<th>View Details</th>
-							</tr>
-							<tr>
-									<td>10:00 PM</td>
-									<td><img src="imag/cloud_day.png" height=15%></td>
-									<td>0%</td>
-									<td>70.28</td>
-									<td>
-										<a class="btn btn-primary" role="button" data-toggle="collapse" href="#day0" aria-expanded="false" aria-controles="day0">
-										<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 
-										</a>
-									</td>
-							</tr>
-							<tr>
-								<td colspan=5 class="more">
-								<div class="collapse" id="day0">
-									<div class="well">
-									<table class="more">
-										<tbody>
-											<tr>
-												<th>Wind</th>
-												<th>Humidity</th>
-												<th>Visibility</th>
-												<th>Pressure</th>
-											</tr>
-											<tr>
-												<td>4mph</td>
-												<td>83%</td>
-												<td>8.37 mi</td>
-												<td>1012.6 mb</td>
-											</tr>
-										</tbody>
-									</table>
-									</div>
-								</div>
-								</td>
-							</tr>
-							<tr>
-									<td>11:00 PM</td>
-									<td><img src="imag/cloud_day.png" height=15%></td>
-									<td>0%</td>
-									<td>70.28</td>
-									<td>
-										<a class="btn btn-primary" role="button" data-toggle="collapse" href="#day1" aria-expanded="false" aria-controles="day1">
-										<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 
-										</a>
-									</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-			<div role="tabpanel" class="tab-pane fade" id="week">
-				<div class="col-xs-12">
-					<div class="col-xs-12 col-md-1 col-md-offset-2" id="week1">
-						<div class="col-xs-12">
-							Friday
+				<div role="tabpanel" class="tab-pane fade" id="week">
+					<div class="col-xs-12">
+						<div class="col-xs-12 col-md-1 col-md-offset-2" id="week1">
+							<div class="col-xs-12">
+								Friday
+							</div>
+							<div class="col-xs-12">
+								Oct 16
+							</div>
+							<div class="col-xs-12">
+								<img src="imag/cloudy.png" height=7%>
+							</div>
+							<div class="col-xs-12">
+								Min Temp
+							</div>
+							<div class="col-xs-12">
+								<span class="templarge">67&deg;</span>
+							</div>
+							<div class="col-xs-12">
+								Max Temp
+							</div>
+							<div class="col-xs-12">
+								<span class="templarge">81&deg;</span>
+							</div>
 						</div>
-						<div class="col-xs-12">
-							Oct 16
+						<div class="col-xs-12 col-md-1" id="week2">
+							<div class="col-xs-12">
+								Saturday
+							</div>
+							<div class="col-xs-12">
+								Oct 17
+							</div>
+							<div class="col-xs-12">
+								<img src="imag/cloudy.png" height=7%>
+							</div>
+							<div class="col-xs-12">
+								Min Temp
+							</div>
+							<div class="col-xs-12">
+								<span class="templarge">66&deg;</span>
+							</div>
+							<div class="col-xs-12">
+								Max Temp
+							</div>
+							<div class="col-xs-12">
+								<span class="templarge">82&deg;</span>
+							</div>
 						</div>
-						<div class="col-xs-12">
-							<img src="imag/cloudy.png" height=7%>
+						<div class="col-xs-12 col-md-1" id="week3">
+							<div class="col-xs-12">
+								Saturday
+							</div>
+							<div class="col-xs-12">
+								Oct 17
+							</div>
+							<div class="col-xs-12">
+								<img src="imag/cloudy.png" height=7%>
+							</div>
+							<div class="col-xs-12">
+								Min Temp
+							</div>
+							<div class="col-xs-12">
+								<span class="templarge">66&deg;</span>
+							</div>
+							<div class="col-xs-12">
+								Max Temp
+							</div>
+							<div class="col-xs-12">
+								<span class="templarge">82&deg;</span>
+							</div>
 						</div>
-						<div class="col-xs-12">
-							Min Temp
+						<div class="col-xs-12 col-md-1" id="week4">
+							<div class="col-xs-12">
+								Saturday
+							</div>
+							<div class="col-xs-12">
+								Oct 17
+							</div>
+							<div class="col-xs-12">
+								<img src="imag/cloudy.png" height=7%>
+							</div>
+							<div class="col-xs-12">
+								Min Temp
+							</div>
+							<div class="col-xs-12">
+								<span class="templarge">66&deg;</span>
+							</div>
+							<div class="col-xs-12">
+								Max Temp
+							</div>
+							<div class="col-xs-12">
+								<span class="templarge">82&deg;</span>
+							</div>
 						</div>
-						<div class="col-xs-12">
-							<span class="templarge">67&deg;</span>
+						<div class="col-xs-12 col-md-1" id="week5">
+							<div class="col-xs-12">
+								Saturday
+							</div>
+							<div class="col-xs-12">
+								Oct 17
+							</div>
+							<div class="col-xs-12">
+								<img src="imag/cloudy.png" height=7%>
+							</div>
+							<div class="col-xs-12">
+								Min Temp
+							</div>
+							<div class="col-xs-12">
+								<span class="templarge">66&deg;</span>
+							</div>
+							<div class="col-xs-12">
+								Max Temp
+							</div>
+							<div class="col-xs-12">
+								<span class="templarge">82&deg;</span>
+							</div>
 						</div>
-						<div class="col-xs-12">
-							Max Temp
+						<div class="col-xs-12 col-md-1" id="week6">
+							<div class="col-xs-12">
+								Saturday
+							</div>
+							<div class="col-xs-12">
+								Oct 17
+							</div>
+							<div class="col-xs-12">
+								<img src="imag/cloudy.png" height=7%>
+							</div>
+							<div class="col-xs-12">
+								Min Temp
+							</div>
+							<div class="col-xs-12">
+								<span class="templarge">66&deg;</span>
+							</div>
+							<div class="col-xs-12">
+								Max Temp
+							</div>
+							<div class="col-xs-12">
+								<span class="templarge">82&deg;</span>
+							</div>
 						</div>
-						<div class="col-xs-12">
-							<span class="templarge">81&deg;</span>
-						</div>
-					</div>
-					<div class="col-xs-12 col-md-1" id="week2">
-						<div class="col-xs-12">
-							Saturday
-						</div>
-						<div class="col-xs-12">
-							Oct 17
-						</div>
-						<div class="col-xs-12">
-							<img src="imag/cloudy.png" height=7%>
-						</div>
-						<div class="col-xs-12">
-							Min Temp
-						</div>
-						<div class="col-xs-12">
-							<span class="templarge">66&deg;</span>
-						</div>
-						<div class="col-xs-12">
-							Max Temp
-						</div>
-						<div class="col-xs-12">
-							<span class="templarge">82&deg;</span>
-						</div>
-					</div>
-					<div class="col-xs-12 col-md-1" id="week3">
-						<div class="col-xs-12">
-							Saturday
-						</div>
-						<div class="col-xs-12">
-							Oct 17
-						</div>
-						<div class="col-xs-12">
-							<img src="imag/cloudy.png" height=7%>
-						</div>
-						<div class="col-xs-12">
-							Min Temp
-						</div>
-						<div class="col-xs-12">
-							<span class="templarge">66&deg;</span>
-						</div>
-						<div class="col-xs-12">
-							Max Temp
-						</div>
-						<div class="col-xs-12">
-							<span class="templarge">82&deg;</span>
-						</div>
-					</div>
-					<div class="col-xs-12 col-md-1" id="week4">
-						<div class="col-xs-12">
-							Saturday
-						</div>
-						<div class="col-xs-12">
-							Oct 17
-						</div>
-						<div class="col-xs-12">
-							<img src="imag/cloudy.png" height=7%>
-						</div>
-						<div class="col-xs-12">
-							Min Temp
-						</div>
-						<div class="col-xs-12">
-							<span class="templarge">66&deg;</span>
-						</div>
-						<div class="col-xs-12">
-							Max Temp
-						</div>
-						<div class="col-xs-12">
-							<span class="templarge">82&deg;</span>
-						</div>
-					</div>
-					<div class="col-xs-12 col-md-1" id="week5">
-						<div class="col-xs-12">
-							Saturday
-						</div>
-						<div class="col-xs-12">
-							Oct 17
-						</div>
-						<div class="col-xs-12">
-							<img src="imag/cloudy.png" height=7%>
-						</div>
-						<div class="col-xs-12">
-							Min Temp
-						</div>
-						<div class="col-xs-12">
-							<span class="templarge">66&deg;</span>
-						</div>
-						<div class="col-xs-12">
-							Max Temp
-						</div>
-						<div class="col-xs-12">
-							<span class="templarge">82&deg;</span>
-						</div>
-					</div>
-					<div class="col-xs-12 col-md-1" id="week6">
-						<div class="col-xs-12">
-							Saturday
-						</div>
-						<div class="col-xs-12">
-							Oct 17
-						</div>
-						<div class="col-xs-12">
-							<img src="imag/cloudy.png" height=7%>
-						</div>
-						<div class="col-xs-12">
-							Min Temp
-						</div>
-						<div class="col-xs-12">
-							<span class="templarge">66&deg;</span>
-						</div>
-						<div class="col-xs-12">
-							Max Temp
-						</div>
-						<div class="col-xs-12">
-							<span class="templarge">82&deg;</span>
-						</div>
-					</div>
-					<div class="col-xs-12 col-md-1" id="week7">
-						<div class="col-xs-12">
-							Saturday
-						</div>
-						<div class="col-xs-12">
-							Oct 17
-						</div>
-						<div class="col-xs-12">
-							<img src="imag/cloudy.png" height=7%>
-						</div>
-						<div class="col-xs-12">
-							Min Temp
-						</div>
-						<div class="col-xs-12">
-							<span class="templarge">66&deg;</span>
-						</div>
-						<div class="col-xs-12">
-							Max Temp
-						</div>
-						<div class="col-xs-12">
-							<span class="templarge">82&deg;</span>
+						<div class="col-xs-12 col-md-1" id="week7">
+							<div class="col-xs-12">
+								Saturday
+							</div>
+							<div class="col-xs-12">
+								Oct 17
+							</div>
+							<div class="col-xs-12">
+								<img src="imag/cloudy.png" height=7%>
+							</div>
+							<div class="col-xs-12">
+								Min Temp
+							</div>
+							<div class="col-xs-12">
+								<span class="templarge">66&deg;</span>
+							</div>
+							<div class="col-xs-12">
+								Max Temp
+							</div>
+							<div class="col-xs-12">
+								<span class="templarge">82&deg;</span>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 	<script>
 	var street = "";
@@ -430,7 +430,9 @@
 		"partly-cloudy-day":		"cloud_day.png",
 		"partly-cloudy-night":	"cloud_night.png"
 	};
-	console.log(images);
+	function create(type) {
+		return document.createElement(type);
+	}
 	function getData(street, city, state, degree) {
 		$.ajax({
 			url: "http://elasticsobanet-env.elasticbeanstalk.com/forecastapi.php",
@@ -474,10 +476,30 @@
 		var lat = parseFloat(data.latitude);
 		var lon = parseFloat(data.longitude);
 		generateMap(lat, lon);
+		
+		generateDaySummary(data);
 	}
 	
-	function create(type) {
-		return document.createElement(type);
+	function parseTime(hours, minutes) {
+		var am = "PM";
+		if (hours < 12) {
+			am = "AM";
+			if (hours == 0) {
+				hours = 12;
+			}
+		}
+		else {
+			hours -= 12;
+			hours += "";
+		}
+		if (hours.length == 1) {//Either 1 or 2
+			hours = "0" + hours;
+		}
+		if (minutes.length == 1) {//Either 1 or 2
+			minutes = "0" + minutes;
+		}
+		
+		return (hours + ":" + minutes + " " + am);
 	}
 	
 	function generateRightNowSummary(data) {
@@ -531,33 +553,22 @@
 			
 		$("#todayprecip").text(rainfall);
 		
-		$("#todayrain").text(parseFloat(data["currently"]["precipProbability"])*100 + "%");
-		$("#todaywind").text(parseFloat(data["currently"]["windSpeed"]).toFixed(2));
-		$("#todaydew").text(parseFloat(data["currently"]["dewPoint"]).toFixed(2));
-		$("#todayhumid").text(parseFloat(data["currently"]["humidity"])*100 + "%");
-		$("#todayvis").text(parseFloat(data["currently"]["visibility"]).toFixed(2));
+		$("#todayrain").text(parseInt(parseFloat(data["currently"]["precipProbability"])*100) + "" + "%");
+		$("#todaywind").text((parseFloat(data["currently"]["windSpeed"]).toFixed(2) + " ") + ((degree == "us") ? "mph" : "mps"));
+		$("#todaydew").text(parseFloat(data["currently"]["dewPoint"]).toFixed(2) + "");
+		$("#todayhumid").text(parseInt(parseFloat(data["currently"]["humidity"])*100) + "" + "%");
+		$("#todayvis").text(parseFloat(data["currently"]["visibility"]).toFixed(2) + " " + ((degree == "us") ? "mi" : "km"));
 		
 		var rise = new Date(parseInt(data["daily"]["data"][0]["sunriseTime"])*1000);
 		var hours = String(rise.getHours());
-		if (hours.length == 1) {//Either 1 or 2
-			hours = "0" + hours;
-		}
 		var minutes = String(rise.getMinutes());
-		if (minutes.length == 1) {//Either 1 or 2
-			minutes = "0" + minutes;
-		}
-		$("#todayrise").text(hours + ":" + minutes);
+		
+		$("#todayrise").text(parseTime(hours, minutes));
 		
 		var set = new Date(parseInt(data["daily"]["data"][0]["sunsetTime"])*1000);
 		hours = String(set.getHours());
-		if (hours.length == 1) {//Either 1 or 2
-			hours = "0" + hours;
-		}
 		minutes = String(set.getMinutes());
-		if (minutes.length == 1) {//Either 1 or 2
-			minutes = "0" + minutes;
-		}
-		$("#todayset").text(hours + ":" + minutes);
+		$("#todayset").text(parseTime(hours, minutes));
 	}
 	
 	function generateMap(lat, lon) {
@@ -589,6 +600,115 @@
 		map.setCenter(lonlat, 10);
 		var ls = new OpenLayers.Control.LayerSwitcher({'ascending':false});
 		map.addControl(ls);
+	}
+	
+	function generateDaySummary(data) {
+		var table = $("#daybody");
+		var headers = table.children()[0];
+		table.text("");
+		table.append(headers);
+		
+		for (var i = 0; i < 24; i++) {
+			var tr = create("tr");
+			
+			var hourly = data["hourly"]["data"][i];
+			var time = new Date(parseInt(hourly["time"]*1000));
+			var hour = parseTime(String(time.getHours()), "0");
+			var td1 = create("td");
+			td1.innerHTML = hour;
+			tr.appendChild(td1);
+			
+			var td2 = create("td");
+			var img = create("img");
+			img.setAttribute("src", "imag/" + images[hourly["icon"]]);
+			img.setAttribute("height", "15%");
+			td2.appendChild(img);
+			tr.appendChild(td2);
+			
+			var td3 = create("td");
+			td3.innerHTML = parseInt(parseFloat(hourly["cloudCover"])*100) + "%";
+			tr.appendChild(td3);
+			
+			var td4 = create("td");
+			td4.innerHTML = parseFloat(hourly["temperature"]).toFixed(2);
+			tr.appendChild(td4);
+			
+			var td5 = create("td");
+			var a = create("a");
+			a.setAttribute("class", "btn btn-primary");
+			a.setAttribute("role", "button");
+			a.setAttribute("data-toggle", "collapse");
+			a.setAttribute("href", "#day"+i);
+			a.setAttribute("aria-expanded", "true")
+			a.setAttribute("aria-controls", "day"+i);
+			var span = create("span");
+			span.setAttribute("class", "glyphicon glyphicon-plus");
+			span.setAttribute("aria-hidden", "true");
+			a.appendChild(span);
+			td5.appendChild(a);
+			tr.appendChild(td5);
+			
+			table.append(tr);
+			
+			var tr2 = create("tr");
+			var td21 = create("td");
+			td21.setAttribute("colspan", "5");
+			td21.setAttribute("class", "more");
+			
+			var div1 = create("div");
+			div1.setAttribute("class", "collapse");
+			div1.setAttribute("id", "day"+i);
+			
+			var well = create("div");
+			well.setAttribute("class", "well");
+			
+			var tmore = create("table");
+			tmore.setAttribute("class", "more");
+			
+			var morebody = create("tbody");
+			
+			var tr21 = create("tr");
+			var th21 = create("th");
+			var th22 = create("th");
+			var th23 = create("th");
+			var th24 = create("th");
+			th21.innerHTML = "Wind";
+			th22.innerHTML = "Humidity";
+			th23.innerHTML = "Visibility";
+			th24.innerHTML = "Pressure";
+			
+			var tr22 = create("tr");
+			var th25 = create("td");
+			var th26 = create("td");
+			var th27 = create("td");
+			var th28 = create("td");
+			th25.innerHTML = hourly["windSpeed"] + ((degree == "us") ? "mph" : "mps");
+			th26.innerHTML = parseInt(hourly["humidity"]) + "%";
+			th27.innerHTML = hourly["visibility"] + ((degree == "us") ? "mi" : "km");
+			th28.innerHTML = hourly["pressure"] + ((degree == "us") ? "mb" : "hPa");
+			
+			
+			tr21.appendChild(th21);
+			tr21.appendChild(th22);
+			tr21.appendChild(th23);
+			tr21.appendChild(th24);
+			tr22.appendChild(th25);
+			tr22.appendChild(th26);
+			tr22.appendChild(th27);
+			tr22.appendChild(th28);
+			
+			morebody.appendChild(tr21);
+			morebody.appendChild(tr22);
+			tmore.appendChild(morebody);
+			well.appendChild(tmore);
+			div1.appendChild(well);
+			td21.appendChild(div1);
+			tr2.appendChild(td21);
+			
+			table.append(tr2);
+		}
+		
+		
 	}
 	
 	$(document).ready(init());
