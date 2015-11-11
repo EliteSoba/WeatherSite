@@ -243,12 +243,7 @@ div.tab-content div div{
 	color: rgb(255, 176, 32);
 }
 
-.modal-table tr th{
-	text-align: center;
-	border: 0px;
-	padding: 5px;
-}
-.modal-table tr td{
+.modal-table div{
 	text-align: center;
 	border: 0px;
 	padding: 5px;

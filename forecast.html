@@ -823,62 +823,72 @@
 			var table = create("table");
 			table.setAttribute("class", "table modal-table");
 			
-			var tr11 = create("tr");
-			var th11 = create("th");
+			var tr11 = create("div");
+			tr11.setAttribute("class", "col-xs-12 col-md-4");
+			var th11 = create("b");
 			th11.innerHTML = "Sunrise Time";
-			var th12 = create("th");
-			th12.innerHTML = "Sunset Time";
-			var th13 = create("th");
-			th13.innerHTML = "Humidity";
-			tr11.appendChild(th11);
-			tr11.appendChild(th12);
-			tr11.appendChild(th13);
-			table.appendChild(tr11);
-			
-			var tr12 = create("tr");
-			var td11 = create("td");
+			var td11 = create("div");
 			var rise = new Date(parseInt(daily["sunriseTime"])*1000);
 			var hours = String(rise.getHours());
 			var minutes = String(rise.getMinutes());
 			td11.innerHTML = parseTime(hours, minutes);
-			var td12 = create("td");
+			tr11.appendChild(th11);
+			tr11.appendChild(td11);
+			
+			var tr12 = create("div");
+			tr12.setAttribute("class", "col-xs-12 col-md-4");
+			var th12 = create("b");
+			th12.innerHTML = "Sunset Time";
+			var td12 = create("div");
 			var set = new Date(parseInt(daily["sunsetTime"])*1000);
 			hours = String(set.getHours());
 			minutes = String(set.getMinutes());
 			td12.innerHTML = parseTime(hours, minutes);
-			var td13 = create("td");
-			td13.innerHTML = parseInt(daily["humidity"]) + "%";
-			tr12.appendChild(td11);
+			tr12.appendChild(th12);
 			tr12.appendChild(td12);
-			tr12.appendChild(td13);
-			table.appendChild(tr12);
 			
-			var table2 = create("table");
-			table2.setAttribute("class", "table modal-table");
+			var tr13 = create("div");
+			tr13.setAttribute("class", "col-xs-12 col-md-4");
+			var th13 = create("b");
+			th13.innerHTML = "Humidity";
+			var td13 = create("div");
+			td13.innerHTML = parseInt(daily["humidity"]) + "%";
+			tr13.appendChild(th13);
+			tr13.appendChild(td13);
 			
-			var tr21 = create("tr");
-			var th21 = create("th");
+			var tr21 = create("div");
+			tr21.setAttribute("class", "col-xs-12 col-md-4");
+			var th21 = create("b");
 			th21.innerHTML = "Wind Speed";
-			var th22 = create("th");
-			th22.innerHTML = "Visibility";
-			var th23 = create("th");
-			th23.innerHTML = "Pressure";
-			tr21.appendChild(th21);
-			tr21.appendChild(th22);
-			tr21.appendChild(th23);
-			table.appendChild(tr21);
-			
-			var tr22 = create("tr");
-			var td21 = create("td");
+			var td21 = create("div");
 			td21.innerHTML = daily["windSpeed"] + ((degree == "us") ? "mph" : "mps");
-			var td22 = create("td");
+			tr21.appendChild(th21);
+			tr21.appendChild(td21);
+			
+			var tr22 = create("div");
+			tr22.setAttribute("class", "col-xs-12 col-md-4");
+			var th22 = create("b");
+			th22.innerHTML = "Visibility";
+			var td22 = create("div");
 			td22.innerHTML = (daily["visibility"]) ? (daily["visibility"] + ((degree == "us") ? "mi" : "km")) : ("N.A.");
-			var td23 = create("td");
-			td23.innerHTML = daily["pressure"] + ((degree == "us") ? "mb" : "hPa");
-			tr22.appendChild(td21);
+			tr22.appendChild(th22);
 			tr22.appendChild(td22);
-			tr22.appendChild(td23);
+			
+			var tr23 = create("div");
+			tr23.setAttribute("class", "col-xs-12 col-md-4");
+			var th23 = create("b");
+			th23.innerHTML = "Pressure";
+			var td23 = create("div");
+			td23.innerHTML = daily["pressure"] + ((degree == "us") ? "mb" : "hPa");
+			tr23.appendChild(th23);
+			tr23.appendChild(td23);
+			
+			table.appendChild(tr11);
+			table.appendChild(tr12);
+			table.appendChild(tr13);
+			table.appendChild(tr21);
 			table.appendChild(tr22);
+			table.appendChild(tr23);
 			
 			var footer = create("div");
 			footer.setAttribute("class", "modal-footer");
