@@ -112,16 +112,23 @@ div.tab-content div div{
 	#border: 0px;
 }
 
-#day td.more {
-	border: 1px;
-	color: rgb(255, 0, 0);
-}
 
+#day td a{
+	background-color: rgba(0, 0, 0, 0);
+	border-color: rgba(0, 0, 0, 0);
+	color: #337ab7;
+}
 #day div.well {
 	background-image: linear-gradient(rgb(232, 232, 232) 0px, rgb(245, 245, 245) 100%);
 	padding: 10px;
 	padding-bottom: 30px;
 }
+
+#day td.more {
+	border: 1px;
+	color: rgb(255, 0, 0);
+}
+
 #day table.more{
 	text-align: center;
 	width: 100%;
