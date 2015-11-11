@@ -164,7 +164,7 @@ div.tab-content div div{
 	margin-bottom: 5px;
 }
 
-@media all and (max-width: 1000px) {
+@media all and (max-width: 600px) {
 	#week div {
 		background: rgba(0, 0, 0, 0);
 	}
@@ -172,6 +172,7 @@ div.tab-content div div{
 	#week div div {
 		border-radius: 50px;
 		width: 100%;
+		margin-bottom: 10px;
 	}
 }
 
