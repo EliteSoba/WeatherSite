@@ -82,7 +82,7 @@ div.tab-content{
 	color: rgb(255, 255, 255);
 }
 
-#templarge {
+#today .templarge {
 	font-size: 450%;
 }
 #highlow {
@@ -144,12 +144,73 @@ div.tab-content div div{
 	padding: 5px;
 }
 
-
 #day th{
 	text-align: center;
 	color: rgb(255, 255, 255);
 	background: #337ab7;
 	border: 0px;
+}
+
+#week div{
+	text-align: center;
+	background: rgb(47, 52, 57);
+	color: #FFFFFF;
+	padding: 5px;
+}
+
+#week div div {
+	border-radius: 5px;
+	margin-right: 10px;
+	margin-bottom: 5px;
+}
+
+@media all and (max-width: 1000px) {
+	#week div {
+		background: rgba(0, 0, 0, 0);
+	}
+	
+	#week div div {
+		border-radius: 50px;
+		width: 100%;
+	}
+}
+
+#week div div div {
+	background: rgba(0, 0, 0, 0);
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+# img {
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	max-height: 100%;
+}
+
+#week div#week1{
+	background: rgb(54, 125, 181);
+}
+#week div#week2 {
+	background: rgb(236, 68, 68);
+}
+#week div#week3 {
+	background: rgb(230, 142, 79);
+}
+#week div#week4 {
+	background: rgb(169, 164, 57);
+}
+#week div#week5 {
+	background: rgb(151, 112, 167);
+}
+#week div#week6 {
+	background: rgb(243, 124, 126);
+}
+#week div#week7 {
+	background: rgb(206, 69, 113);
+}
+
+#week .templarge {
+	font-size: 200%;
 }
 
 #mapContainer{
