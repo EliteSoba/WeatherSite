@@ -472,12 +472,13 @@
 		generateRightNowSummary(data);
 		
 		$("span.unit").text((degree == "us") ? "F" : "C");
-	
+		
+		generateDaySummary(data);
+		generateWeekSummary(data);
+		
 		var lat = parseFloat(data.latitude);
 		var lon = parseFloat(data.longitude);
 		generateMap(lat, lon);
-		
-		generateDaySummary(data);
 	}
 	
 	function parseTime(hours, minutes) {
@@ -711,6 +712,78 @@
 		
 	}
 	
+	function generateWeekSummary(data) {
+		var week = $("#week");
+		week.text("");
+		var div = create("div");
+		div.setAttribute("class", "col-xs-12");
+		var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+		var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+		for (var i = 1; i <= 7; i++) {
+			var daily = data["daily"]["data"][i];
+			
+			var childdiv = create("div");
+			if (i == 1) {
+				childdiv.setAttribute("class", "col-xs-12 col-md-1 col-md-offset-2");
+			}
+			else {
+				childdiv.setAttribute("class", "col-xs-12 col-md-1");
+			}
+			
+			childdiv.setAttribute("id", "week"+i);
+			
+			var day = create("div");
+			day.setAttribute("class", "col-xs-12");
+			var date = new Date(daily["time"]*1000);
+			day.innerHTML = days[date.getDay()];
+			
+			var mdate = create("div");
+			mdate.setAttribute("class", "col-xs-12");
+			var month = months[date.getMonth()];
+			var date = date.getDate();
+			mdate.innerHTML = month + " " + date;
+			
+			var icon = create("div");
+			icon.setAttribute("class", "col-xs-12");
+			var img = create("img");
+			img.setAttribute("src", "imag/" + images[daily["icon"]]);
+			img.setAttribute("height", "7%");
+			icon.appendChild(img);
+			
+			var min = create("div");
+			min.setAttribute("class", "col-xs-12");
+			min.innerHTML = "Min Temp";
+			
+			var minTemp = create("div");
+			minTemp.setAttribute("class", "col-xs-12");
+			var minSpan = create("span");
+			minSpan.setAttribute("class", "templarge");
+			minSpan.innerHTML = parseInt(daily["temperatureMin"]) + "°";
+			minTemp.appendChild(minSpan);
+			
+			var max = create("div");
+			max.setAttribute("class", "col-xs-12");
+			max.innerHTML = "Max Temp";
+			
+			var maxTemp = create("div");
+			maxTemp.setAttribute("class", "col-xs-12");
+			var maxSpan = create("span");
+			maxSpan.setAttribute("class", "templarge");
+			maxSpan.innerHTML = parseInt(daily["temperatureMax"]) + "°";
+			maxTemp.appendChild(maxSpan);
+			
+			childdiv.appendChild(day);
+			childdiv.appendChild(mdate);
+			childdiv.appendChild(icon);
+			childdiv.appendChild(min);
+			childdiv.appendChild(minTemp);
+			childdiv.appendChild(max);
+			childdiv.appendChild(maxTemp);
+			
+			div.appendChild(childdiv);
+		}
+		week.append(div);
+	}
 	$(document).ready(init());
 	
 	function init() {
