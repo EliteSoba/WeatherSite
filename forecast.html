@@ -179,7 +179,7 @@
 						</table>
 					</div>
 				</div>
-				<div class="col-xs-12 col-md-6">
+				<div class="col-xs-12 col-md-6" id="mapContainer">
 					<div id="basicMap">
 					</div>
 				</div>
@@ -274,9 +274,10 @@
 				console.log(lat);
 				console.log(lon);
 				console.log(lat + lon);
-				var lonlat = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), 
-								new OpenLayers.Projection("EPSG:900913"));;
+				var lonlat = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), new OpenLayers.Projection("EPSG:900913"));
 				console.log(lonlat);
+				
+				$("#basicMap").text("");
 				var map = new OpenLayers.Map("basicMap");
 				var mapnik = new OpenLayers.Layer.OSM();
 				var layer_cloud = new OpenLayers.Layer.XYZ(
