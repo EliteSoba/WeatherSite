@@ -106,6 +106,8 @@
 		</form>
 		<hr>
 		<div id="responseArea">
+		<div id="modals">
+		</div>
 			<!-- Nav tabs -->
 			<ul class="nav nav-pills" role="tablist">
 				<li role="presentation" class="active"><a href="#current" aria-controls="current" role="tab" data-toggle="tab">Right Now</a></li>
@@ -247,7 +249,7 @@
 				</div>
 				<div role="tabpanel" class="tab-pane fade" id="week">
 					<div class="col-xs-12">
-						<div class="col-xs-12 col-md-1 col-md-offset-2" id="week1">
+						<div class="col-xs-12 col-md-1 col-md-offset-2" id="week1" data-toggle="modal" data-target="#modal1">
 							<div class="col-xs-12">
 								Friday
 							</div>
@@ -475,6 +477,7 @@
 		
 		generateDaySummary(data);
 		generateWeekSummary(data);
+		generateModals(data);
 		
 		var lat = parseFloat(data.latitude);
 		var lon = parseFloat(data.longitude);
@@ -712,6 +715,157 @@
 		
 	}
 	
+	function generateModals(data) {
+		var modals = $("#modals");
+		modals.text("");
+		var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+		var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+		for (var i = 1; i <= 7; i++) {
+			var daily = data["daily"]["data"][i];
+			
+			var childdiv = create("div");
+			childdiv.setAttribute("class", "modal fade");
+			childdiv.setAttribute("id", "modal"+i);
+			childdiv.setAttribute("tabindex", "-1");
+			childdiv.setAttribute("role", "dialog");
+			childdiv.setAttribute("aria-labelledby", "modal"+i+"Label");
+			
+			var dialog = create("div");
+			dialog.setAttribute("class", "modal-dialog");
+			dialog.setAttribute("role", "document");
+			
+			var content = create("div");
+			content.setAttribute("class", "modal-content");
+			
+			var header = create("div");
+			header.setAttribute("class", "modal-header");
+			
+			var button = create("button");
+			button.setAttribute("type", "button");
+			button.setAttribute("class", "close");
+			button.setAttribute("data-dismiss", "modal");
+			button.setAttribute("aria-label", "Close");
+			
+			var span = create("span");
+			span.setAttribute("aria-hidden", "true");
+			span.innerHTML = "×";
+			button.appendChild(span);
+			
+			var h4 = create("h4");
+			h4.setAttribute("class", "modal-title");
+			h4.setAttribute("id", "modal"+i+"Label");
+			var date = new Date(daily["time"]*1000);
+			var month = months[date.getMonth()];
+			var dat = date.getDate();
+			h4.innerHTML = "Weather in " + city + " on " + month + " " + dat;
+			
+			var body = create("div");
+			body.setAttribute("class", "modal-body");
+			
+			var icon = create("div");
+			icon.setAttribute("class", "col-xs-12");
+			var img = create("img");
+			img.setAttribute("src", "imag/" + images[daily["icon"]]);
+			img.setAttribute("height", "25%");
+			icon.appendChild(img);
+			
+			var summary = create("div");
+			summary.setAttribute("class", "col-xs-12 summary");
+			summary.innerHTML = days[date.getDay()] + ": ";
+			
+			var sumwords = create("span");
+			sumwords.setAttribute("class", "sumwords");
+			sumwords.innerHTML = daily["summary"];
+			summary.appendChild(sumwords);
+			
+			var table = create("table");
+			table.setAttribute("class", "table modal-table");
+			
+			var tr11 = create("tr");
+			var th11 = create("th");
+			th11.innerHTML = "Sunrise Time";
+			var th12 = create("th");
+			th12.innerHTML = "Sunset Time";
+			var th13 = create("th");
+			th13.innerHTML = "Humidity";
+			tr11.appendChild(th11);
+			tr11.appendChild(th12);
+			tr11.appendChild(th13);
+			table.appendChild(tr11);
+			
+			var tr12 = create("tr");
+			var td11 = create("td");
+			var rise = new Date(parseInt(daily["sunriseTime"])*1000);
+			var hours = String(rise.getHours());
+			var minutes = String(rise.getMinutes());
+			td11.innerHTML = parseTime(hours, minutes);
+			var td12 = create("td");
+			var set = new Date(parseInt(daily["sunsetTime"])*1000);
+			hours = String(set.getHours());
+			minutes = String(set.getMinutes());
+			td12.innerHTML = parseTime(hours, minutes);
+			var td13 = create("td");
+			td13.innerHTML = parseInt(daily["humidity"]) + "%";
+			tr12.appendChild(td11);
+			tr12.appendChild(td12);
+			tr12.appendChild(td13);
+			table.appendChild(tr12);
+			
+			var table2 = create("table");
+			table2.setAttribute("class", "table modal-table");
+			
+			var tr21 = create("tr");
+			var th21 = create("th");
+			th21.innerHTML = "Wind Speed";
+			var th22 = create("th");
+			th22.innerHTML = "Visibility";
+			var th23 = create("th");
+			th23.innerHTML = "Pressure";
+			tr21.appendChild(th21);
+			tr21.appendChild(th22);
+			tr21.appendChild(th23);
+			table.appendChild(tr21);
+			
+			var tr22 = create("tr");
+			var td21 = create("td");
+			td21.innerHTML = daily["windSpeed"] + ((degree == "us") ? "mph" : "mps");
+			var td22 = create("td");
+			td22.innerHTML = (daily["visibility"]) ? (daily["visibility"] + ((degree == "us") ? "mi" : "km")) : ("N.A.");
+			var td23 = create("td");
+			td23.innerHTML = daily["pressure"] + ((degree == "us") ? "mb" : "hPa");
+			tr22.appendChild(td21);
+			tr22.appendChild(td22);
+			tr22.appendChild(td23);
+			table.appendChild(tr22);
+			
+			var footer = create("div");
+			footer.setAttribute("class", "modal-footer");
+			
+			var close = create("button");
+			close.setAttribute("type", "button");
+			close.setAttribute("class", "btn btn-default");
+			close.setAttribute("data-dismiss", "modal");
+			close.innerHTML = "Close";
+			
+			header.appendChild(button);
+			header.appendChild(h4);
+			
+			body.appendChild(icon);
+			body.appendChild(summary);
+			body.appendChild(table);
+			
+			footer.appendChild(close);
+			
+			content.appendChild(header);
+			content.appendChild(body);
+			content.appendChild(footer);
+			
+			dialog.appendChild(content);
+			childdiv.appendChild(dialog);
+			modals.append(childdiv);
+		}
+	}
+	
 	function generateWeekSummary(data) {
 		var week = $("#week");
 		week.text("");
@@ -729,7 +883,8 @@
 			else {
 				childdiv.setAttribute("class", "col-xs-12 col-md-1");
 			}
-			
+			childdiv.setAttribute("data-toggle", "modal");
+			childdiv.setAttribute("data-target", "#modal"+i);
 			childdiv.setAttribute("id", "week"+i);
 			
 			var day = create("div");

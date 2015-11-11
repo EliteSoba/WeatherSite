@@ -234,6 +234,33 @@ div.tab-content div div{
 	background: rgba(0, 0, 139, 1);
 }
 
+.summary {
+	font-size: 170%;
+	font-weight: bold;
+}
+
+.sumwords {
+	color: rgb(255, 176, 32);
+}
+
+.modal-table tr th{
+	text-align: center;
+	border: 0px;
+	padding: 5px;
+}
+.modal-table tr td{
+	text-align: center;
+	border: 0px;
+	padding: 5px;
+}
+
+.modal-header {
+	font-weight: bold;
+}
+.modal-body {
+	text-align: center;
+}
+
 .olControlAttribution {
     padding: 5px;
     z-index: 1000;
